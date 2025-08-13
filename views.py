@@ -10,5 +10,6 @@ def home(request):
 
 def reservations(request):
     context = {
-        'current_year'
+        'current_year': datetime.now().year
     }
+    return render(request, 'reservations.html', context)
