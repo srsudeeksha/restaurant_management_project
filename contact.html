@@ -1,32 +1,5 @@
-<from id="contactForm" method="post">
-    {% csrf_token %}
+{% extends "base.html" %}
 
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br><br>
-
-    <button type="submit">Submit </button>
-</from>
-
-<script>
-    document.getElementById("contactForm").addEventListner("submit",function(event){
-    const name =  document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.traim();
-
-    if (name === "" || email === ""){
-        alert("Please fill in both Name and Email fields.");
-        event.preventDefault();
-        return;
-
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)){
-        alert("please enter a valid email address.");
-        event.preventDefault();
-
-    }
-});
-</script>
+{% block content %}
+    <h1>Welcome to Our Resturant</h1>
+{% endblock %}
