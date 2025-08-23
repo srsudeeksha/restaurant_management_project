@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <style>
+        body{ font-family: Arial, sans-serif; margin:40px;}
+        h1 { color: #333; }
+        .menu-item{
+            border:1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f9f9f9;
+
+        }
+        .menu-item h2{
+            margin:0;
+            color: #444;
+        }
+        .menu-item p{
+            margin:5px 0;
+        }
+        .price{
+            font-weight:bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Menu</h1>
+    {% for item in menu %}
+        <div class="menu-item">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p class="price">${{ item.price }}</p>
+        </div>
+    {%empty %}
+        <p>No menu items available.</p>
+    {% endfor %}
+</body>
+</html>
