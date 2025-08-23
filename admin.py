@@ -1,6 +1,6 @@
-from django.contrib import admin 
-from .models import Menu, Order, OrderItem
+from django.contrib import admin
+from .models import Userprofile
 
-admin.site.register(Menu)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+@admin.register(Userprofile)
+class UserprofileAdmin(admin.ModelAdmin):
+    list_display = ("user","phone_number")
