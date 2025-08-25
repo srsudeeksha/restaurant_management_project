@@ -1,5 +1,14 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h1>Welcome to Our Resturant</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact </title>
+</head>
+<body>
+    <h2> Contact Us</h2>
+    <form method= "post">
+        {% csrf_token %}
+        {% form.as_p %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
