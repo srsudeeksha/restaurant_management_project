@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import Userprofile
+from .models import MenuItem
 
-@admin.register(Userprofile)
-class UserprofileAdmin(admin.ModelAdmin):
-    list_display = ("user","phone_number")
+admin.site.register(MenuItem)
