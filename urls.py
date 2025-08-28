@@ -1,6 +1,7 @@
-from django.urls import path 
-from .views import get_menu
+from django.urls import path
+form . import views
 
-urlpatterns=[
-    path('menu/',get_menu,name='menu'),
+urlpatterns = [
+    path('contact/',views.contact_views, name='contact'),
+    path('thank-you/',views.contact_view, name='thank_you'),
 ]
