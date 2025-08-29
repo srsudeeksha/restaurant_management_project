@@ -1,2 +1,9 @@
-<h2>{{ resturant.name }}</h2>
-<p><strong>Address: </strong>{{ resturant.address }}</p>
+<h1>{{ resturant.name }}</h1>
+<p><strong> Address:</strong>{{ resturant.address }}</p>
+<h2>Opening Hours</h2>
+
+<ul>
+    {% for day, hours in resturant.opening_hours.items %}
+        <li><strong>{{ day }}:</strong>{{ hours }}</li>
+    {% endfor %}
+</ul>
