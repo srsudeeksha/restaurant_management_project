@@ -1,14 +1,14 @@
-from django.shortcuts import render 
-from django.http import HttpResponse
-from datetime import datetime
-
 def home(request):
-    try:
-        context = {
-            'restaurant_name': 'Nothing Before Milkshake',
-            'welcome_message': 'Welcome to our milkshake paradise!',
-            'current_year': datetime.now().year
-        }
-        return render(request, 'home.html', context)
-    except Exception as e:
-        return HttpResponse(f"An error occured: {str(e)}", status = 500)   
+    menu_items=[
+        {"name":"Margherita Pizza","price":250},
+        {"name":"Veg Burger","price":150},
+        {"name":"French Fries","price":100},
+        {"name":"Chocolate Milkshake","price":180},
+        {"name":"Pasta Alfredo","price":220},
+    ]
+
+    query = request.GET.get("q")
+    if query:
+        menu_item = [item for item in menu_item if query.lower()in item["name"].lower()]
+
+    return render(request,"home.html",{"menu_items":menu_items,"query":query})
