@@ -1,8 +1,28 @@
-<div style="text-align:center; margin:40px 0;">
-    <h1 style="font-size:2.5rem; color:#2c3e50; font-weight:bold;">
-        🍴 Welcome to [Restaurant Name]!
-    </h1>
-    <p style="font-size:1.2rem; color:#555; margin-top:10px;">
-        Serving delicious food with love ❤️ — Your taste, our passion.
-    </p>
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 20px auto; padding: 20px;">
+    <h2 style="text-align: center;">Our Menu</h2>
+
+    <!-- Search Bar -->
+    <form method="get" action="" style="margin: 20px 0; text-align: center;">
+        <input type="text" name="q" placeholder="Search menu..." value="{{ query|default:'' }}"
+               style="padding: 8px; width: 60%; border: 1px solid #ccc; border-radius: 5px;">
+        <button type="submit" style="padding: 8px 12px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Search
+        </button>
+    </form>
+
+    <!-- Menu Items -->
+    {% if menu_items %}
+        {% for item in menu_items %}
+        <div style="padding: 15px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <h4>{{ item.name }}</h4>
+            <p>Price: ₹{{ item.price }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align:center; color:red;">No items found.</p>
+    {% endif %}
 </div>
+{% endblock %}
