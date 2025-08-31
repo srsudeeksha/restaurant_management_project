@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin: 20px;">
+    {% if restaurant.logo %}
+        <img src="{{ restaurant.logo.url }}" alt="Restaurant Logo" 
+             style="max-height: 120px; margin-bottom: 15px;">
+    {% endif %}
+    <h1>{{ restaurant.name }}</h1>
+</div>
+
+<!-- rest of your menu/search content -->
+{% endblock %}
