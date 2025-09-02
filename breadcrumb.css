@@ -1,0 +1,41 @@
+.breadcrumb {
+    padding: 10px 16px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.breadcrumb ol{
+    display: flex;
+    flex-wrap:wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.breadcrumb li{
+    display: inline;
+    font-size: 16px;
+    color: #555;
+}
+
+.breadcrumb li + li:before{
+    padding: 0 8px;
+    color: #aaa;
+    content: "/";
+}
+
+.breadcrumb li a{
+    color: #0275d8;
+    text-decoration: none;
+}
+
+.breadcrumb li a:hover{
+    text-decoration: underline;
+}
+
+.breadcrumb li[aria-current="page"]{
+    font-weight: bold;
+    color:#333;
+    
+}
