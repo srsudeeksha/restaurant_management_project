@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resturant Homepage</title>
+    <style>
+        .datetime-box{
+            margin-top:20px;
+            padding:10px;
+            background:#f8f9fa;
+            border:1px solid #ddd;
+            border-radius:8px;
+            display: inline-block;
+            font-size:18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Resturant</h1>
+    <p>Delicious food, just one click away</p>
+
+    <div class="datetime-box">
+        {{current_time|date:"l, d M Y"}}
+        {{current_time|time:"h:i A"}}
+    </div>
+</body>
+</html>
