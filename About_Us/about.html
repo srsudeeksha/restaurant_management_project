@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us</title>
+  <style>
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .about-container img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>{{ about.title }}</h2>
+  <div class="about-container">
+    {% if about.image %}
+      <img src="{{ about.image.url }}" alt="Restaurant Image">
+    {% endif %}
+    <p>{{ about.description }}</p>
+  </div>
+</body>
+</html>
