@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Us</title>
-</head>
-<body>
-    <h2>Contact Us</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-    <button type="submit">Send</button>
-    </form>
+<h2> Contact Us</h2>
 
-    {% if form.errors %}
-        <div style="color:red">
-            <ul>
-                {% for field, errors in form.errors.items %}
-                    <li>{{field }}: {{errors|striptags}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-</body>
-</html>
+{% if restaurant_info %}
+    <p><strong>Address:</strong>{{restaurant_info.address}}</p>
+    <p><strong>Phone:</strong>{{restaurant_info.Phone}}</p>
+    <p><strong>Email:</strong>{{restaurant_info.Email}}</p>
+{% else %}
+    <p>Restaurant info not available.</p>
+{% endif %}
