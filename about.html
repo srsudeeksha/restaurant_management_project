@@ -1,0 +1,7 @@
+<h2>About Us</h2>
+
+{% if resturant_info and resturant_info.description %}
+    <p>{{resturant_info.description}}</p>
+{% else %}
+    <p>No description available at the moment.</p>
+{% endif %}
