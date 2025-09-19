@@ -1,11 +1,10 @@
 from django.db import models
 
-class ResturantLocation(models.Model):
-    address = models.CharField(max_length=255)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=20)
+class Resturant(models.Model):
+    name = models.CharField(max_length=255)
 
-    def __str__(self):
-        return f"{self.address},{self.city},{self.state} - {self.zip_code}"
-        
+    opening_days = models.CharField(
+        max_length=50,
+        help_text="Comma-separated days. E.g. 'Mon,Tue,Wed,Thu,Fri'"
+    )
+    
