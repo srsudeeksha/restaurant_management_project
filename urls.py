@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import OrderHistoryView
 
-urlpatterns = [
-    path("menu/",views.name name="memu"),
+urlpatteerns = [
+    path('history/',OrderHistoryView.as_view(),name='order-history'),
 ]
