@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import MenuItemSearchView
+from .views import UserProfileUpdateView
 
 urlpatterns = [
-    path('menu-item/search/', MenuItemSearchView.as_view(), name='menu-item-search'),
+    path('user/profile/update/',UserProfileUpdateView.as_view(), name='user-profile-update'),
 ]
