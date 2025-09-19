@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import MenuItemsByCategoryView
+from .views import MenuItemSearchView
 
 urlpatterns = [
-    path('items-by-category/',MenuItemsByCategoryView.as_view(), name = 'items-by')
+    path('menu-item/search/', MenuItemSearchView.as_view(), name='menu-item-search'),
 ]
