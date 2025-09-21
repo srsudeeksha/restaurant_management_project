@@ -1,8 +1,7 @@
-from django.views.generic import ListView
-from .models import MenuItem
+from rest_framework.generics import CreateAPIView
+from .models import ContactFormSubmission
+from .serializers import ContactFormSubmissionSerializer
 
-class MenuListView(ListView):
-    model = MenuItem
-    template_name = 'menu_list.html'
-    context_object_name = 'menu_items'
-    paginate_by = 10 
+class ContactFormSubmissionCreateView(CreateAPIView):
+    queryset = ContactFormSubmission.objects.all()
+    serializer_class = ContactFormSubmissionSerializer
