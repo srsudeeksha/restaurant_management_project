@@ -1,14 +1,10 @@
-def home(request):
-    menu_items = [
-        {"name": "Margherita Pizza", "price": 250},
-        {"name": "Veg Burger", "price": 150},
-        {"name": "French Fries", "price": 100},
-        {"name": "Chocolate Milkshake", "price": 180},
-        {"name": "Pasta Alfredo", "price": 220},
-    ]
+from rest_framework.generics import ListAPIView
+from .models import MenuItem
+from .serializers import MenuItemSerializer
 
-    query = request.GET.get("q")
-    if query:
-        menu_items = [item for item in menu_items if query.lower() in item["name"].lower()]
+class DailySpecialsView(ListAPIView):
+    serializer_class = MenuItemSerializer
 
-    return render(request, "home.html", {"menu_items": menu_items, "query": query})
+    def get_queryset(self):
+        return MenuItem.Objects.filter(is_daily_special=True)
+        
