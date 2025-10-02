@@ -1,21 +1,11 @@
 from django.db import models
-from decimal import Decimal 
 
-class MenuItem(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+class Coupon(models.Model):
+    code= models.CharField(max_length=50, unique=True)
+    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2)
+    is_active = models.BooleanField(default=True)
+    valid_from = models.DateField()
+    valid_until = models.DateField()
 
-class Order(models.Model):
-
-    def calculate_total(self):
-        return sum(
-            item.menu_item.price * item.quantity
-            for item in self.orderitem_set.all()
-
-        )
-
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
-    
+    def __str__(self):
+        return self.code
