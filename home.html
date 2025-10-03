@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=device-width , initial-scale=1.0">
-    <title>Resturant Homepage</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-    <section class="hero">
-        <div class="overlay">
-            <h1> Welcome to Nothing Before Milkshake</h1>
-            <p>Delicious Food & Milkshake Just for you</p>
-            <a href="{% url 'menu' %}" class="btn">Explore Menu</a>
-        </div>
-    </section>
-
-    <section class="featured">
-        <h2> Our Specialties</h2>
-        <div class="food-grid">
-            <img src="{% static 'images/burger.jpg'%}" alt="Burger">
-            <img src="{% static 'images/pizza.jpg' %}" alt="Pizza">
-            <img src="{% static 'images/milkshake.jpg' %}" alt="Milkshake">
-        </div>
-    </section>
-</body>
-</html>
+{% block title %}Home {% endblock %}
+####
