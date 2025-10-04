@@ -1,11 +1,10 @@
-from datetime import datetime, time
+import re
 
-def is_restaurant_open():
-    now = datetime.now()
-    weekday = now.weekday()
-
-    open_time = time(9,0)
-    close_time = time(22,0)
-
-    current_time = now.time()
-    return open_time <= current_time <= close_time
+def is_valid_email(email):
+    """
+    Validate an email address using regex.
+    Return True if the email format is valid, False Otherwise.
+    """
+    pattern = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    return bool(re.match(pattern, email))
+    
